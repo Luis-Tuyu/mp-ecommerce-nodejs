@@ -19,4 +19,6 @@ app.get('/detail', function (req, res) {
     res.render('detail', req.query);
 });
 
-app.listen(port);
+app.listen(port,()=>{
+    console.log(`APP is running in port ${port}` )
+});
