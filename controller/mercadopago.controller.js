@@ -1,15 +1,25 @@
 const mercadopagoCtrl = {};
-const mercadopago = require ('mercadopago');
+const mercadopago = require('mercadopago')
+mercadopagoCtrl.createPreference =  (req, res) => {
+  //código de crear preferencia
+  /* console.log(req.body); */
+  let preference = {
+    items: [
+      {
+        title: req.body.description,
+        unit_price: Number(req.body.price),
+        quantity: Number(req.body.quantity),
+      },
+    ],
+  };
 
-mercadopago.configure({
-    access_token: 'APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181'
-  });
-
-
-mercadopagoCtrl.createPreference = async (req,res)=>{
-    //código de crear preferencia
-    
-}
-
+  mercadopago.preferences.create(preference)
+    .then(function (response) {
+      res.json({id:response.body.id})
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
 
 module.exports = mercadopagoCtrl;
