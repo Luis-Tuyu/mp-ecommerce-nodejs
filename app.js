@@ -14,8 +14,10 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 app.use(express.static('assets'));
+app.use(express.static('utils'));
  
 app.use('/assets', express.static(__dirname + '/assets'));
+app.use('/utils', express.static(__dirname + '/utils'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
