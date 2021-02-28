@@ -7,7 +7,7 @@ mercadopagoCtrl.createPreference =  (req, res) => {
     items: [
       {
         title: req.body.description,
-        unit_price: Number(req.body.price),
+        unit_price: Number(req.body.unit_price),
         quantity: Number(req.body.quantity),
       },
     ],
